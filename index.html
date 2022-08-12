@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Presentation Lodash</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/beige.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<img src="./examples/assets/logo-lodash.png" alt="logo lodash" width="300">
+				<div>Lodash is a modern JavaScript utility library delivering modularity, performance & extras</div>
+			</section>
+
+			<section>
+				<p>The State of Javascript 2019 Survey</p>
+				<img src="./examples/assets/statistics-of-usage.png" alt="Survey statistics" width="700">
+			</section>
+
+			<section style="text-align: left;">
+				<p style="text-transform: uppercase; font-weight: 800;">Lodash:</p>
+				<p>- provides utility functions for common programming tasks using a functional programming paradigm;
+				</p>
+				<p>- helps programmers write more concise and easier to maintain JavaScript code;</p>
+				<p>- contains tools to simplify programming with strings, numbers, arrays, functions and objects;</p>
+				<p>- contributes to better code readability;</p>
+				<p>- makes your codebase smaller;</p>
+				<p>- create consistency among development teams;</p>
+			</section>
+
+			<section>
+				<img src="./examples/assets/origins.jpeg" alt="Origins" width="600">
+				<p>Lodash builds upon the older Underscore.js library, originally released in <span
+						style="text-transform: uppercase; font-weight: 600;">2009</span>.</p>
+				<p>In <span style="text-transform: uppercase; font-weight: 600;">2012</span> John-David Dalton created a
+					fork of Underscore, named Lo-Dash (now Lodash).</p>
+			</section>
+
+			<section style="text-align: left;">
+				<p style="text-transform: uppercase; font-weight: 600; text-align: center;">Installation</p>
+
+				<p>1. Using CDN:</p>
+				<pre><code data-trim data-noescape>
+					&lt;script src=&quot;https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js&quot;&gt;&lt;/script&gt;
+				</code></pre>
+				<p>2. Using npm:</p>
+				<pre><code data-trim data-noescape>
+					$ npm i -g npm
+					$ npm i --save lodash
+				</code></pre>
+				<p>3. In Node.js:</p>
+				<pre><code data-trim data-noescape>
+					// Load the full build.
+					var _ = require('lodash');
+					// Load the core build.
+					var _ = require('lodash/core');
+					// Load the FP build for immutable auto-curried methods.
+					var fp = require('lodash/fp');
+					// Load method categories.
+					var array = require('lodash/array');
+					var object = require('lodash/fp/object');
+				</code></pre>
+			</section>
+
+			<section>
+				<img style="margin: 0;" src="./examples/assets/installation.png" alt="Installation modules">
+				<p style="margin: 0;">You can choose to load the full build or load only the modules you need.</p>
+			</section>
+
+			<section>
+				<p style="text-transform: uppercase; font-weight: 600; text-align: center;">Library Contents</p>
+				<ul>The Lodash library is broken up into areas:
+					<li>Array</li>
+					<li>Collection</li>
+					<li>Date</li>
+					<li>Function</li>
+					<li>Lang</li>
+					<li>Math</li>
+					<li>Number</li>
+					<li>Object</li>
+					<li>Sec</li>
+					<li>String</li>
+					<li>Util</li>
+				</ul>
+			</section>
+
+			<section>
+				<p style="text-transform: uppercase; font-weight: 600;">Adding up all the numbers of an array</p>
+				<p>Your code without Lodash:</p>
+				<pre><code data-noescape>
+					const arr = [1, 2, 3, 4, 5];
+					let sum = 0;
+
+					for (let i = 0; i < arr.length; i++) {
+						sum += arr[i];
+					}
+
+					console.log(sum);  // 15
+				</code></pre>
+				<p>Your code using Lodash:</p>
+				<pre><code data-noescape>
+					const arr = [1, 2, 3, 4, 5];
+					console.log(_.sum(arr));  // 15
+				</code></pre>
+			</section>
+
+			<section>
+				<p style="text-transform: uppercase; font-weight: 600;">Deep object copying</p>
+				<p>Your code without Lodash:</p>
+				<pre><code data-noescape>
+					function deepCopy(objA, objB) {
+						for (let key in objB) {
+							if (typeof (objB[key]) != "object") {
+								objA[key] = objB[key];
+							} else {
+								objA[key] = {};
+								deepCopy(objA[key], objB[key]);
+							}
+						}
+					}
+
+					deepCopy(objA, objB);
+				</code></pre>
+				<p>Your code using Lodash:</p>
+				<pre><code data-noescape>
+					let objA = _.cloneDeep(objB);
+				</code></pre>
+			</section>
+
+			<section>
+				<p style="margin: 0;">Your code without Lodash:</p>
+				<img style="margin: 0;" src="./examples/assets/toby-man-2.jpg" alt="Toby Man" width="650">
+				<p style="margin: 0;">Your code using Lodash:</p>
+				<img style="margin: 0;" src="./examples/assets/toby-spider-2.jpg" alt="Toby Spider" width="650">
+			</section>
+
+			<section>
+				<pre><code data-noescape>
+					const movies = [
+					{ title: 'Interstellar', year: 2014 },
+					{ title: 'The Dark Knight', year: 2008 },
+					{ title: 'Prestige', year: 2006 },
+					{ title: 'Inception', year: 2010 },
+					{ title: 'Memento', year: 2000 },
+					{ title: 'Batman Begins', year: 2005 },
+					{ title: 'Tenet', year: 2020 },
+				];
+				
+				const result = _(movies).take(3).value();
+				console.log(result);
+				</code></pre>
+				<p>OUTPUT:</p>
+				<pre><code data-noescape>
+					[
+						{ title: 'Interstellar', year: 2014 },
+						{ title: 'The Dark Knight', year: 2008 },
+						{ title: 'Prestige', year: 2006 },
+					]
+				</code></pre>
+			</section>
+
+			<section>
+				<pre><code data-noescape>
+					const movies = [
+					{ title: 'Interstellar', year: 2014 },
+					{ title: 'The Dark Knight', year: 2008 },
+					{ title: 'Prestige', year: 2006 },
+					{ title: 'Inception', year: 2010 },
+					{ title: 'Memento', year: 2000 },
+					{ title: 'Batman Begins', year: 2005 },
+					{ title: 'Tenet', year: 2020 },
+				];
+				
+				const result = _(movies).take(3).sortBy('year').value();
+				console.log(result);
+				</code></pre>
+				<p>OUTPUT:</p>
+				<pre><code data-noescape>
+					[
+						{ title: 'Prestige', year: 2006 },
+						{ title: 'The Dark Knight', year: 2008 },
+						{ title: 'Interstellar', year: 2014 },
+					]
+				</code></pre>
+			</section>
+
+			<section>
+				<pre><code data-noescape>
+					const movies = [
+					{ title: 'Interstellar', year: 2014 },
+					{ title: 'The Dark Knight', year: 2008 },
+					{ title: 'Prestige', year: 2006 },
+					{ title: 'Inception', year: 2010 },
+					{ title: 'Memento', year: 2000 },
+					{ title: 'Batman Begins', year: 2005 },
+					{ title: 'Tenet', year: 2020 },
+				];
+				
+				const result = _(movies).take(3).map('title').sort().value();
+				console.log(result);
+				</code></pre>
+				<p>OUTPUT:</p>
+				<pre><code data-noescape>
+					['Interstellar', 'Prestige', 'The Dark Knight']
+				</code></pre>
+			</section>
+
+			<section>
+				<p>_.minBy()</p>
+				<pre><code data-trim data-noescape style="padding-left: 120px;">
+					const movie = _.minBy(movies, 'year');
+					console.log(movie);
+				</code></pre>
+				<p>OUTPUT:</p>
+				<pre><code data-noescape>
+					{title: 'Memento', year: 2000}
+				</code></pre>
+				<p>_.maxBy()</p>
+				<pre><code data-trim data-noescape style="padding-left: 120px;">
+					const movie = _.maxBy(movies, 'year');
+					console.log(movie);
+				</code></pre>
+				<p>OUTPUT:</p>
+				<pre><code data-noescape>
+					{title: 'Tenet', year: 2020}
+				</code></pre>
+			</section>
+
+			<section>
+				<p style="text-transform: uppercase; font-weight: 600;">Highlights</p>
+				<ol>
+					<li>Lodash offers extremely useful methods and functions.</li>
+					<li>Lodash makes web development easier.</li>
+					<li>Lodash saves you time.</li>
+				</ol>
+				<img src="./examples/assets/watch-2.jpg" alt="Watch">
+			</section>
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
